@@ -160,18 +160,6 @@ def _cls(delay=0):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def highest_pred(img_name: str, all_preds: dict) -> tuple:
-    """Returns (prediction, prediction percentage)"""
-    img_preds = all_preds[img_name]
-    key_list = list(img_preds.keys())
-    val_list = list(img_preds.values())
-
-    highest_val = max([value for value in img_preds.values()])
-    position = val_list.index(highest_val)
-
-    return key_list[position], highest_val
-
-
 def attempt_login(email: str, passw: str):
     """Attempts to log into Instagram using email and password"""
     get_elem(driver, By.NAME, "username").send_keys(email)
